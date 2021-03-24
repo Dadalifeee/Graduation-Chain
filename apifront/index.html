@@ -23,113 +23,112 @@
     <link rel="stylesheet" href="stylesheets/responsive.css" type="text/css" />
 </head>
 
+<body>
 
-
-
-<body style="background-color: #292b2c;">
-
-    <h1 class="text-center text-white" style="margin-top: 20px; background-color: #292b2c;">Ekip5</h1>
-    <h3 class="text-center text-white" style="margin-top: 20px; background-color: #292b2c;">EkipCoin</h3>
-
-
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card-body bg-light" style="border-radius: 10px;">
-                <div class="row justify-content-center">
-                    <form class="" action="/" method="post" id="formToken">
-                        <input type="text" name="message" id="message" placeholder="Enter your id" size="100"
-                            autofocus />
-                        <input class="btn btn-danger" type="submit" id="envoi_message" value="Recupere" />
-                    </form>
+    <section id="container-all">
+        <div id="wrapper">
+            <div id="two-titles">
+                <div id="logo-Graduation-Chain">
                 </div>
-                <div class="row justify-content-center" style="margin-top: 20px;">
-                    <section id="getData">
-                                
-                    </section>
-                 </div>
-                
+                <h3 class="text-center" style="margin-top: 20px; color: #909090;">Envoyez et récupérez votre diplôme de
+                    manière sécurisée</h3>
+            </div>
+            <div id="form">
+                <div class="row justify-content-center space-bottom row-100">
+                    <div class="col-md-8">
+                        <div class="card card-body bg-light" style="border-radius: 10px;">
+                            <div class="row justify-content-center">
+                                <form class="" action="/" method="post" id="formToken">
+                                    <input type="file" name="message" id="message" placeholder="Upload your file"
+                                        size="100" autofocus />
+                                    <input class="btn btn-danger" type="submit" id="envoi_message" value="Recupere" />
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-center mt-10 row-100">
+                    <div class="col-md-8">
+                        <div class="card card-body bg-light" style="border-radius: 10px;">
+                            <div class="row justify-content-center">
+                                <form class="" action="/" method="post" id="sendImg">
+                                    <input type="text" name="messagesend" class="input-text" id="messagesend"
+                                        placeholder="send text file" size="100" autofocus />
+                                    <input class="btn btn-danger" type="submit" id="envoi_img" value="Envoyer" />
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
+    </section>
 
-    <div class="row justify-content-center mt-10">
-        <div class="col-md-8">
-            <div class="card card-body bg-light" style="border-radius: 10px;">
-                <div class="row justify-content-center">
-                    <form class="" action="/" method="post" id="sendImg">
-                        <input type="text" name="messagesend" id="messagesend" placeholder="send text file" size="100"
-                        autofocus />
-                        <input class="btn btn-danger" type="submit" id="envoi_img" value="Envoyer" />
+</body>
 
-                    </form>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-   
-
-    <script src="javascripts/jquery.js"></script>
-    <script src="javascripts/plugins.js"></script>
-    <script src="javascripts/functions.js"></script>
-    <script src="javascripts/jquery.gmap.js"></script>
-    <script>
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/plugins.js"></script>
+<script src="javascripts/functions.js"></script>
+<script src="javascripts/jquery.gmap.js"></script>
+<script>
 
     function insereMessage(response) {
-            
-        $('#getData').append('<span> data : '+response.data+'</span> <br> <span> myaddresses : '+response.myaddresses+'</span> <br> <span> addresses : '+response.addresses+'</span>');
-        
+
+        $('#getData').append('<span> data : ' + response.data + '</span> <br> <span> myaddresses : ' + response.myaddresses + '</span> <br> <span> addresses : ' + response.addresses + '</span>');
+
     }
 
     $('#formToken').submit(function (e) {
-            e.preventDefault();
-            let message = $('#message').val();
-
-            if (message != "") {
-                console.log('Msg:', message)
-                const encoreString = encodeURIComponent(message)
-                console.log(`http://127.0.0.1:5000/getFile/${encoreString}`)
-                fetch(`http://127.0.0.1:5000/getFile/${encoreString}`, {
-                    mode: 'cors',
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        "content-type": "application/json"
-                    }
-                }).then((response) => {
-                    return response.json();
-                }).then((data) => {
-                    console.log('%cindex.html line:88 response', 'color: #007acc;', data);
-                    insereMessage(data);
-                })
-            }
-        });
-
-    $('#sendImg').submit(function (e){
         e.preventDefault();
-            let message = $('#messagesend').val();
+        let message = $('#message').val();
 
-            if (message != "") {
-                console.log('Msg:', message)
-                const encoreString = encodeURIComponent(message)
-                console.log(`http://127.0.0.1:5000/save/${encoreString}`)
-                fetch(`http://127.0.0.1:5000/save/${encoreString}`, {
-                    mode: 'cors',
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                        "content-type": "application/json"
-                    }
-                }).then((response) => {
-                    return response.json();
-                })
-            }
-        });
-    
+        if (message != "") {
+            console.log('Msg:', message)
+            const encoreString = encodeURIComponent(message)
+            console.log(`http://127.0.0.1:5000/getFile/${encoreString}`)
+            fetch(`http://127.0.0.1:5000/getFile/${encoreString}`, {
+                mode: 'cors',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    "content-type": "application/json"
+                }
+            }).then((response) => {
+                return response.json();
+            }).then((data) => {
+                console.log('%cindex.html line:88 response', 'color: #007acc;', data);
+                insereMessage(data);
+            })
+        }
+    });
 
-    </script>
+    $('#sendImg').submit(function (e) {
+        e.preventDefault();
+        let message = $('#messagesend').val();
 
-</body>
-</body>
+        if (message != "") {
+            console.log('Msg:', message)
+            const encoreString = encodeURIComponent(message)
+            console.log(`http://127.0.0.1:5000/save/${encoreString}`)
+            fetch(`http://127.0.0.1:5000/save/${encoreString}`, {
+                mode: 'cors',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    "content-type": "application/json"
+                }
+            }).then((response) => {
+                return response.json();
+            })
+        }
+    });
+
+
+</script>
+
 
 </html>
