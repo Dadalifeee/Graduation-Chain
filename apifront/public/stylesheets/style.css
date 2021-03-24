@@ -99,6 +99,9 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    /*background-image: url(../images/terry_V3.png);*/
+    background-size: cover;
+    background-position: center;
 }
 
 #wrapper
@@ -141,6 +144,20 @@
     align-items: center;
     justify-content: center;
     height: 61%;
+    margin-top: -4%;
+}
+
+#formToken
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form
+{
+    display: flex;
+    justify-content: space-around;
 }
 
 #logo-Graduation-Chain
@@ -148,14 +165,43 @@
     background-image: url(../images/logo.png);
     background-size: cover;
     background-position: center;
-    width: 40%;
+    width: 36%;
     height: 28%;
 }
 
 .btn-danger
 {
     background-color: #128DCF;
-    border: none;
+    border: 2px solid #128DCF;
+}
+
+.btn-danger:hover
+{
+    background-color: #FFFFFF;
+    border: 2px solid #128DCF;
+    color: #128DCF;
+}
+
+.btn-danger:focus, .btn-danger.focus {
+	box-shadow: none;
+}
+
+.btn-danger.disabled, .btn-danger:disabled {
+	color: #fff;
+	background-color: #128DCF;
+	border-color: #128DCF;
+}
+
+.btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active,
+.show > .btn-danger.dropdown-toggle {
+	color: #fff;
+	background-color: #128DCF;
+	border-color: #128DCF;
+}
+
+.btn-danger:not(:disabled):not(.disabled):active:focus, .btn-danger:not(:disabled):not(.disabled).active:focus,
+.show > .btn-danger.dropdown-toggle:focus {
+	box-shadow: none;
 }
 
 .input-text
