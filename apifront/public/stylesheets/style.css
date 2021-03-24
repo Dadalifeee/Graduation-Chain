@@ -219,6 +219,13 @@ form
     padding: 0 10;
 }
 
+#getData
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 /* ----------------------------------------------------------------
