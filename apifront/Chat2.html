@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Test de turing</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/dark.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/animate.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/swiper.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/responsive.css" type="text/css" />
+</head>
+<style>
+    html{
+        background-color: #292b2c;
+    }
+   
+</style>
+<body style="background-color: #292b2c;">
+    <h1 class="text-center text-white" style="margin-top: 20px; background-color: #292b2c;">Test de Turing</h1>
+
+   
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-body bg-light" style="border-radius: 10px;">
+                <section id="zone_chat">
+                    
+                </section>
+                <div class="row justify-content-center">
+                    <form class="" action="/" method="post" id="formulaire_chat">
+                        <input type="text" name="message" id="message" placeholder="Votre message..." size="50"
+                            autofocus />
+                        <input class="btn btn-danger" type="submit" id="envoi_message" value="Envoyer" />
+                    </form>
+                    <button class="btn btn-info" onclick="download()" style="margin-left: 15px; height: 40px;">Export</button>
+                </div>
+                
+                
+               
+            </div>
+
+        </div>
+       
+       
+    </div>
+
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/plugins.js"></script>
+    <script src="javascripts/functions.js"></script>
+    <script src="javascripts/jquery.gmap.js"></script>
+    <script>
+        var stockmessage = "";
+        var pseudo = prompt('Quel est votre pseudo ?');
+        if (pseudo == null | pseudo.trim() == ""){
+            pseudo = "usernm1"
+        } 
+        var monpseudo = "";
+        monpseudo = pseudo;
+
+        $('#formulaire_chat').submit(function (e) {
+            e.preventDefault();
+            let message = $('#message').val();
+
+            if (message != "") {
+                console.log('Msg:', message)
+                const encoreString = encodeURIComponent(message)
+                console.log(`http://10.12.138.39:5000/test?msg=${encoreString}`)
+                fetch(`http://10.12.138.39:5000/test?msg=${encoreString}`, {
+                    mode: 'cors',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        "content-type": "application/json"
+                    }
+                }).then((response) => {
+                    return response.json();
+                }).then((data) => {
+                    insereMessage(pseudo, message);
+                    $('#message').val('').focus();
+                    const rndTime = Math.floor(Math.random() * 6) + 1
+                    console.log(rndTime)
+                    setTimeout(function () {
+                        insereMessage('Didier Bourdon', data.text);
+                    }, rndTime * 1000)
+                })
+            }
+        });
+
+        function insereMessage(pseudo, message) {
+            const date = new Date();
+            const dateactuelle = date.getHours() + 'H' +date.getSeconds();
+            stockmessage += dateactuelle +" "+ pseudo + " : " + message + "\r\n" ;
+            if (monpseudo == pseudo) {
+               
+                $('#zone_chat').append('<div class="card card-body bg-info" style="border-radius: 20px; margin:5px;"><span class="text-white"><strong>' + dateactuelle + " " + pseudo + '</strong> : ' + message + '</span></div>');
+            }
+            else{
+                $('#zone_chat').append('<div class="card card-body" style="border-radius: 20px; margin:5px;"><span><strong>'  + dateactuelle + " " + pseudo + '</strong> : ' + message + '</span></div>');
+
+            }
+        }
+
+        function download() {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(stockmessage));
+            element.setAttribute('download', 'test.txt');
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
+    </script>
+</body>
+</body>
+
+</html>

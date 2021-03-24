@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ekip5</title>
+
+
+    <style>
+        html {
+            background-color: #292b2c;
+        }
+    </style>
+
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/dark.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/animate.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/swiper.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/magnific-popup.css" type="text/css" />
+
+    <link rel="stylesheet" href="stylesheets/responsive.css" type="text/css" />
+</head>
+
+
+
+
+<body style="background-color: #292b2c;">
+
+    <h1 class="text-center text-white" style="margin-top: 20px; background-color: #292b2c;">Ekip5</h1>
+    <h3 class="text-center text-white" style="margin-top: 20px; background-color: #292b2c;">EkipCoin</h3>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-body bg-light" style="border-radius: 10px;">
+                <div class="row justify-content-center">
+                    <form class="" action="/" method="post" id="formToken">
+                        <input type="text" name="message" id="message" placeholder="Enter your id" size="100"
+                            autofocus />
+                        <input class="btn btn-danger" type="submit" id="envoi_message" value="Recupere" />
+                    </form>
+                </div>
+                <div class="row justify-content-center" style="margin-top: 20px;">
+                    <section id="getData">
+                                
+                    </section>
+                 </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row justify-content-center mt-10">
+        <div class="col-md-8">
+            <div class="card card-body bg-light" style="border-radius: 10px;">
+                <div class="row justify-content-center">
+                    <form class="" action="/" method="post" id="sendImg">
+                        <input type="text" name="messagesend" id="messagesend" placeholder="send text file" size="100"
+                        autofocus />
+                        <input class="btn btn-danger" type="submit" id="envoi_img" value="Envoyer" />
+
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/plugins.js"></script>
+    <script src="javascripts/functions.js"></script>
+    <script src="javascripts/jquery.gmap.js"></script>
+    <script>
+
+    function insereMessage(response) {
+            
+        $('#getData').append('<span> data : '+response.data+'</span> <br> <span> myaddresses : '+response.myaddresses+'</span> <br> <span> addresses : '+response.addresses+'</span>');
+        
+    }
+
+    $('#formToken').submit(function (e) {
+            e.preventDefault();
+            let message = $('#message').val();
+
+            if (message != "") {
+                console.log('Msg:', message)
+                const encoreString = encodeURIComponent(message)
+                console.log(`http://127.0.0.1:5000/getFile/${encoreString}`)
+                fetch(`http://127.0.0.1:5000/getFile/${encoreString}`, {
+                    mode: 'cors',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        "content-type": "application/json"
+                    }
+                }).then((response) => {
+                    return response.json();
+                }).then((data) => {
+                    console.log('%cindex.html line:88 response', 'color: #007acc;', data);
+                    insereMessage(data);
+                })
+            }
+        });
+
+    $('#sendImg').submit(function (e){
+        e.preventDefault();
+            let message = $('#messagesend').val();
+
+            if (message != "") {
+                console.log('Msg:', message)
+                const encoreString = encodeURIComponent(message)
+                console.log(`http://127.0.0.1:5000/save/${encoreString}`)
+                fetch(`http://127.0.0.1:5000/save/${encoreString}`, {
+                    mode: 'cors',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        "content-type": "application/json"
+                    }
+                }).then((response) => {
+                    return response.json();
+                })
+            }
+        });
+    
+
+    </script>
+
+</body>
+</body>
+
+</html>
