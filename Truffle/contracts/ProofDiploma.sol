@@ -1,4 +1,4 @@
-pragma solidity ^0.8.1;
+pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
 contract ProofDiploma {
