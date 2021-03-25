@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Ekip5</title>
+
+
+    <style>
+        html {
+            background-color: #292b2c;
+        }
+    </style>
+
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/dark.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/animate.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/swiper.css" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/magnific-popup.css" type="text/css" />
+
+    <link rel="stylesheet" href="stylesheets/responsive.css" type="text/css" />
+</head>
+
+<body>
+    <a id="return-arrow" href="/"></a>
+
+    <section id="container-all">
+        <div id="wrapper">
+            <div id="two-titles">
+                <div id="logo-Graduation-Chain">
+                </div>
+                <h3 class="text-center" style="margin-top: 20px; color: #909090;">Envoyez et récupérez votre diplôme de
+                    manière sécurisée</h3>
+            </div>
+
+            <div class="row justify-content-center row-100">
+                <div class="col-md-8">
+                    <div class="card card-body bg-light" style="border-radius: 10px;">
+                        <div class="row justify-content-center">
+                            <form class="" action="/" method="post" id="authentication">
+                                <input type="text" name="messageAuth" class="input-text" id="messageAuth"
+                                    placeholder="Veuillez saisir votre adresse" size="60" autofocus />
+                                <input class="btn btn-danger" type="submit" id="messgaeAuthSend"
+                                    value="Envoyer votre adresse" />
+
+                            </form>
+
+                        </div>
+                        <section id="authentificationsucces">
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center space-bottom row-100">
+                <div class="col-md-8">
+                    <div class="card card-body bg-light" style="border-radius: 10px;">
+                        <div class="row justify-content-center">
+                            <form class="" action="/" method="post" id="sendDiploma">
+
+                                <input type="text" name="nameDiploma" class="input-text" id="nameDiploma"
+                                    placeholder="Le nom du diplome" size="60" autofocus />
+                                <div id="upload-file">
+                                    <input type="file" name="message" id="message" placeholder="Upload your file"
+                                        size="50" autofocus />
+                                    <input class="btn btn-danger" type="submit" id="envoi_message" value="Envoyer" />
+                                </div>
+                            </form>
+                        </div>
+                        <section id="displayHash">
+
+                        </section>
+                        <div class="text-success">
+                            <p id="diplomeSend"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mt-30 row-100">
+                <div class="col-md-8">
+                    <div class="card card-body bg-light" style="border-radius: 10px;">
+                        <div class="row justify-content-center">
+                            <form class="" action="/" method="post" id="recupdata">
+                                <input type="text" name="messagesend" class="input-text" id="messagerecup"
+                                    placeholder="Veuillez saisir le hash du diplome" size="60" autofocus />
+                                <input class="btn btn-danger" type="submit" id="envoi_img"
+                                    value="Vérifier le diplome" />
+
+                            </form>
+
+                        </div>
+                        <section id="getData">
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+
+<script src="javascripts/jquery.js"></script>
+<script src="javascripts/plugins.js"></script>
+<script src="javascripts/functions.js"></script>
+<script src="javascripts/jquery.gmap.js"></script>
+<script src="javascripts/blockchain.js"></script>
+
+</html>

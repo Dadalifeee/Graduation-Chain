@@ -23,6 +23,14 @@ app.get('/', function (req, res) {
   res.sendfile('index.html');
 });
 
+app.get('/team', function (req, res) {
+  res.sendfile('ekip.html');
+});
+
+app.get('/upload', function (req, res) {
+  res.sendfile('upload.html');
+});
+
 app.get('/api/account', function (req, res) {
   web3.eth.getAccounts().then((reponses) => {
     console.log('%capp.js line:53 reponses', 'color: #007acc;', reponses);
