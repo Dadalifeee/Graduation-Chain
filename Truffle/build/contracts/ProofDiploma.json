@@ -33,7 +33,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -96,7 +97,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -132,7 +134,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"_Diplomas\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"diplomaNumber\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_auth\",\"type\":\"address\"}],\"name\":\"add_authorized\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_tocheck\",\"type\":\"address\"}],\"name\":\"check_authorized\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_diplomaNumber\",\"type\":\"string\"}],\"name\":\"create_item\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_diplomaNumber\",\"type\":\"string\"}],\"name\":\"item_present\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"diplomaNumber\",\"type\":\"string\"}],\"internalType\":\"struct ProofDiploma.Diploma\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"myFunction\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"_mystring\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/Users/Mathias/dev/blockchain/ekip5Blockchain/Truffle/contracts/ProofDiploma.sol\":\"ProofDiploma\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/Users/Mathias/dev/blockchain/ekip5Blockchain/Truffle/contracts/ProofDiploma.sol\":{\"keccak256\":\"0x47ba84084f52357c7336edb4564fd23537f60cd6bf91460f92b5c239fc035241\",\"urls\":[\"bzz-raw://5a877f24c603736adab12ae9c85629a972690bb118069690bd68c0e7a4d6e23f\",\"dweb:/ipfs/QmTm1a6fJWvKVS3ctFWnwQasfgRJX1uDoVWyZHvrSRt9wE\"]}},\"version\":1}",
@@ -6038,12 +6041,13 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xE64736Cef5DDADC5E13768C0E80b40907D698C7a",
-      "transactionHash": "0x12b6b66c5ec44dd13c77ffe29354c9250982dbce05e782f575a2c72ba0517370"
+      "address": "0x0788687FFCB9cA754e8b293acb20C697a60D1E42",
+      "transactionHash": "0x7c689843897e618f4f34d3dc091b4df25cd6bc52ef9daddc0b198b797a7d6a35"
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-25T09:48:52.938Z",
+  "updatedAt": "2021-03-25T12:41:07.603Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

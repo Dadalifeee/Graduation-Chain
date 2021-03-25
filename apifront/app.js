@@ -11,7 +11,7 @@ app.use(cors())
 
 const web3 = new Web3("http://localhost:7545"); //Les paramètres de connexion a ganache
 //l’adresse du contrat avec lequel vous comptez communiquer.
-let address = "0xE64736Cef5DDADC5E13768C0E80b40907D698C7a";
+let address = "0x0788687FFCB9cA754e8b293acb20C697a60D1E42";
 //L’adresse du créateur du contrat
 var contractOwner = '';
 //const
@@ -19,7 +19,6 @@ const dest = '0x9F70627E03a8b33239cF3FA70D8981447dE66507';
 //web3.eth.getAccounts().then(console.log);
 let contract = new web3.eth.Contract(abi, address);
 
-web3.eth.getBalance('0x13ae9fE4AAdf285319b03838CE3625c91B43B0E8').then(console.log)
 app.get('/', function (req, res) {
   res.sendfile('index.html');
 });
@@ -59,7 +58,6 @@ app.get('/api/test', function (req, res) {
 });
 
 app.post('/api/addDiploma/:name/:hash', function (req, res) {
-  console.log('%capp.js line:66 contractOwner', 'color: #007acc;', contractOwner);
   contract.methods.create_item(req.params.name, req.params.hash).send({from: contractOwner, gasLimit:'6721975'}).then((response)=>{
     res.send(response)
   }).catch((error)=>{

@@ -39,6 +39,7 @@ build/Release
 
 # Dependency directories
 apifront/node_modules/
+Truffle/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
