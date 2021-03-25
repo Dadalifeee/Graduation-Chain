@@ -26,6 +26,8 @@ app.get('/', function (req, res) {
 });
 
 
+
+
 app.get('/api/account', function (req, res) {
   web3.eth.getAccounts().then((reponses) => {
     console.log('%capp.js line:53 reponses', 'color: #007acc;', reponses);
@@ -60,19 +62,19 @@ app.get('/api/test', function (req, res) {
    })
 });
 
-app.post('/api/addDiploma', function (req, res) {
-  contract.methods.create_item("Super Diplome CDP", "0598230948230").send({from: contractOwner, gasLimit:'6721975'}).then((response)=>{
+app.post('/api/addDiploma/:name/:hash', function (req, res) {
+  contract.methods.create_item(req.params.name, req.params.hash).send({from: contractOwner, gasLimit:'6721975'}).then((response)=>{
     res.send(response)
   }).catch((error)=>{
     res.send(error)
   })
 });
 
-app.get('/api/checkDiploma', function (req, res) {
-  contract.methods.item_present('0598230948230').call().then((response)=>{
+app.get('/api/checkDiploma/:hash', function (req, res) {
+  contract.methods.item_present(req.params.hash).call().then((response)=>{
     res.send(response)
   }).catch((error)=>{
-    res.send(error)
+    res.send("error")
   })
 });
 
