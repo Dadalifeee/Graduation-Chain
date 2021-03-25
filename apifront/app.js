@@ -11,15 +11,16 @@ app.use(cors())
 var contract;
 const web3 = new Web3("http://localhost:7545"); //Les paramètres de connexion a ganache
 //l’adresse du contrat avec lequel vous comptez communiquer.
-var address = "0xC55d8797544DEA1d8C69eB2DCd4fb81481412FFf";
+var address = "0xE64736Cef5DDADC5E13768C0E80b40907D698C7a";
 //Se trouve dans /build/contracts/nomToken.json
 //L’adresse du créateur du contrat
-const contractOwner = '0xB32Eb60271bB8967D49cbf0e910c8d0eC5F1a26aa5cF24800D2fA84d151D57D3';
+const contractOwner = '0x13ae9fE4AAdf285319b03838CE3625c91B43B0E8';
 //const
 const dest = '0x9F70627E03a8b33239cF3FA70D8981447dE66507';
 //web3.eth.getAccounts().then(console.log);
 contract = new web3.eth.Contract(abi, address);
 
+web3.eth.getBalance('0x13ae9fE4AAdf285319b03838CE3625c91B43B0E8').then(console.log)
 app.get('/', function (req, res) {
   res.sendfile('index.html');
 });
@@ -59,6 +60,26 @@ app.get('/api/test', function (req, res) {
    })
 });
 
+app.post('/api/addDiploma', function (req, res) {
+  contract.methods.create_item("Super Diplome CDP", "0598230948230").send({from: contractOwner, gasLimit:'6721975'}).then((response)=>{
+    res.send(response)
+  }).catch((error)=>{
+    res.send(error)
+  })
+});
+
+app.get('/api/checkDiploma', function (req, res) {
+  contract.methods.item_present('0598230948230').call().then((response)=>{
+    res.send(response)
+  }).catch((error)=>{
+    res.send(error)
+  })
+});
 
 console.log('%capp.js line:34 http://localhost:8080', 'color: #007acc;');
 server.listen(8080);
+
+// var myContract = new web3.eth.Contract([...], '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe', {
+//   from: '0x1234567890123456789012345678901234567891', // default from address
+//   gasPrice: '20000000000' // default gas price in wei, 20 gwei in this case
+// });

@@ -28,7 +28,7 @@ contract ProofDiploma {
     }
     
    function create_item(string memory _name, string memory _diplomaNumber) public{
-       require(authorized[msg.sender]);
+       //require(authorized[msg.sender]);
        _Diplomas.push(Diploma(ids,_name,_diplomaNumber));
        _items[msg.sender] = _Diplomas[ids];
        ids++;
@@ -55,7 +55,7 @@ contract ProofDiploma {
         return (_Diplomas[i]);
       }
     }
-    revert('Vehicle is not recorder');
+    revert('Diploma is not recorder');
   }
 
 
