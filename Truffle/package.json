@@ -1,0 +1,11 @@
+{
+  "name": "truffle",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "npx truffle compile",
+    "start": "npx truffle migrate --network ropsten"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.2.4"
+  }
+}
