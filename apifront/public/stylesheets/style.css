@@ -98,7 +98,9 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     /*background-image: url(../images/terry_V3.png);*/
     background-size: cover;
     background-position: center;
@@ -224,6 +226,31 @@ form
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#return-arrow
+{
+    position: absolute;
+    top: 5%;
+    left: 4%;
+    width: 40px;
+    height: 40px;
+    background: url('../images/arrow.png') center;
+    background-size: cover;
+    border: none;
+}
+
+#sendDiploma
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#upload-file
+{
+    margin-top: 4%;
 }
 
 

@@ -8,25 +8,21 @@ const { abi } = require('../Truffle/build/contracts/ProofDiploma.json');
 app.use(express.static('public'));
 app.use(cors())
 
-var contract;
+
 const web3 = new Web3("http://localhost:7545"); //Les paramètres de connexion a ganache
 //l’adresse du contrat avec lequel vous comptez communiquer.
-var address = "0xE64736Cef5DDADC5E13768C0E80b40907D698C7a";
-//Se trouve dans /build/contracts/nomToken.json
+let address = "0xE64736Cef5DDADC5E13768C0E80b40907D698C7a";
 //L’adresse du créateur du contrat
-const contractOwner = '0x13ae9fE4AAdf285319b03838CE3625c91B43B0E8';
+var contractOwner = '';
 //const
 const dest = '0x9F70627E03a8b33239cF3FA70D8981447dE66507';
 //web3.eth.getAccounts().then(console.log);
-contract = new web3.eth.Contract(abi, address);
+let contract = new web3.eth.Contract(abi, address);
 
 web3.eth.getBalance('0x13ae9fE4AAdf285319b03838CE3625c91B43B0E8').then(console.log)
 app.get('/', function (req, res) {
   res.sendfile('index.html');
 });
-
-
-
 
 app.get('/api/account', function (req, res) {
   web3.eth.getAccounts().then((reponses) => {
@@ -63,6 +59,7 @@ app.get('/api/test', function (req, res) {
 });
 
 app.post('/api/addDiploma/:name/:hash', function (req, res) {
+  console.log('%capp.js line:66 contractOwner', 'color: #007acc;', contractOwner);
   contract.methods.create_item(req.params.name, req.params.hash).send({from: contractOwner, gasLimit:'6721975'}).then((response)=>{
     res.send(response)
   }).catch((error)=>{
@@ -76,6 +73,11 @@ app.get('/api/checkDiploma/:hash', function (req, res) {
   }).catch((error)=>{
     res.send("error")
   })
+});
+
+app.get('/api/getauth/:address', function (req, res) {
+  contractOwner = req.params.address
+  res.send(contractOwner)
 });
 
 console.log('%capp.js line:34 http://localhost:8080', 'color: #007acc;');
