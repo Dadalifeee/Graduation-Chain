@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "scripts": {
     "build": "npx truffle compile",
-    "start": "npx truffle migrate --network ropsten"
+    "dev": "npx truffle migrate --network development",
+    "start": "npx truffle migrate --network rinkeby"
   },
   "devDependencies": {
-    "@truffle/hdwallet-provider": "^1.2.4"
+    "@truffle/hdwallet-provider": "1.2.2"
   }
 }
