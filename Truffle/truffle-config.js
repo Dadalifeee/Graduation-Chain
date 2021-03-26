@@ -58,9 +58,20 @@ module.exports = {
     // },
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
+    // Déploiement réseaux de tests Rinkeby
     rinkeby: {
       provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraKey}`),
-      network_id: 4,       // Ropsten's id  & 4 rinkeby
+      network_id: 4,       // rinkeby's id  & 4 rinkeby
+      gas: 5500000,        // rinkeby has a lower block limit than mainnet
+      gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
+      confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+      timeoutBlocks: 200,  // # of blocks before a deployment times out  (minimum/default: 50)
+      skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+    },
+    // Déploiement réseaux de tests Ropsten
+    ropsten: {
+      provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${infuraKey}`),
+      network_id: 3,       // Ropsten's id
       gas: 5500000,        // Ropsten has a lower block limit than mainnet
       gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)

@@ -1,5 +1,5 @@
 # Ekip5 - KIT GAME Blockchain
-## Projet "Proof Of Diploma"
+## Projet "Graduation Chain"
 
 ### Front
 
@@ -30,9 +30,9 @@ npm run build       (npx truffle compile)
 ```
 
 ```
-npm run dev       (npx truffle migrate --network development) (update with your host and port ganache on truffle-config.js)
+npm run dev         (npx truffle migrate --network development) (update with your host and port ganache on truffle-config.js)
 ```
 
 ```
-npm run start       (npx truffle migrate --network ropsten) (update with your secret file and url provider ropsten on truffle-config.js)
+npm run start       (npx truffle migrate --network rinkeby) (update with your secret file and url provider ropsten on truffle-config.js)
 ```
