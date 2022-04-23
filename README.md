@@ -1,7 +1,7 @@
 # Ekip5 - KIT GAME Blockchain
 ## Project "Graduation Chain"
 Blockchain Diploma Certification Project
-### Front
+### Install 
 
 ```
 cd apifront
