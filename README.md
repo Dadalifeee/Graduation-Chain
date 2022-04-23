@@ -1,6 +1,6 @@
 # Ekip5 - KIT GAME Blockchain
-## Projet "Graduation Chain"
-
+## Project "Graduation Chain"
+Blockchain Diploma Certification Project
 ### Front
 
 ```
